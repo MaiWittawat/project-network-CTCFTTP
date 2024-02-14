@@ -4,7 +4,7 @@ import json
 
 
     
-def send_text_file(file_name, key, new_file_name):
+def send_json_file(file_name, key, new_file_name):
     with open(file_name, "rb") as f:
         file_content = f.read()
         
@@ -24,14 +24,6 @@ def send_text_file(file_name, key, new_file_name):
     print(response)
     client_socket.close()
     
-def send_file(file_name):
-    with open(file_name, "rb") as f:
-        file_content = f.read()
-    client_socket.sendall(file_content)
-    response = client_socket.recv(1024).decode('utf-8')
-    content = json.loads(response)
-    print(response)
-    client_socket.close()
     
     
 def receive_json_file(conn, new_file_name):
@@ -78,7 +70,8 @@ server_address = ('localhost', server_port)
 
 client_socket.connect(server_address)
 
+# request_file('mai_message.txt', client_socket, 'receive_mai_message.txt', 1146)
 
-send_file('code.py')
+send_json_file('c-4.py', 1146, 'c-4-test.py')
 
 

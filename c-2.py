@@ -83,6 +83,8 @@ server_address = ('localhost', server_port)
 
 client_socket.connect(server_address)
 
-send_file("code.py")
+# send_file("code.py")
+request_file('message_send.txt', client_socket, 'receive_message_send.txt', 1146)
+# send_text_file("message.txt", 1146, "message_send.txt")
 
 
